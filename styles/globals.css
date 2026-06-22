@@ -1,0 +1,316 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- DESIGN TOKENS (Grove AI convention, Colmed colors) ---- */
+:root {
+  /* Colors — Colmed originals */
+  --color-cyan-brand: #0891b2;
+  --color-cyan-vivid: #06b6d4;
+  --color-cyan-light: #22d3ee;
+  --color-cyan-pale: #cffafe;
+  --color-teal-action: #0d9488;
+  --color-ink-black: #0f172a;
+  --color-graphite: #334155;
+  --color-slate-mid: #64748b;
+  --color-mist-gray: #f1f5f9;
+  --color-pure-white: #ffffff;
+  --color-shadow-smoke: #cbd5e1;
+  --color-emerald-support: #10b981;
+
+  /* Surfaces */
+  --surface-canvas: #ffffff;
+  --surface-card: #f1f5f9;
+  --surface-inverted-dark: #0f172a;
+  --surface-brand-accent: #0891b2;
+
+  /* Typography */
+  --font-display: 'Libre Caslon Text', 'Lora', Georgia, serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Type Scale */
+  --text-caption: 12px;     --leading-caption: 1.5;     --tracking-caption: 1.2px;
+  --text-body-sm: 14px;     --leading-body-sm: 1.5;     --tracking-body-sm: -0.28px;
+  --text-body: 16px;        --leading-body: 1.5;        --tracking-body: -0.32px;
+  --text-subheading: 20px;  --leading-subheading: 1.25; --tracking-subheading: -0.4px;
+  --text-heading-sm: 24px;  --leading-heading-sm: 1.25; --tracking-heading-sm: -0.6px;
+  --text-heading: 32px;     --leading-heading: 1.2;     --tracking-heading: -0.9px;
+  --text-heading-lg: 40px;  --leading-heading-lg: 1.2;  --tracking-heading-lg: -1.44px;
+  --text-display: 80px;     --leading-display: 1.2;     --tracking-display: -1.01px;
+
+  /* Spacing */
+  --spacing-4: 4px;   --spacing-8: 8px;   --spacing-12: 12px;
+  --spacing-16: 16px; --spacing-20: 20px; --spacing-24: 24px;
+  --spacing-32: 32px; --spacing-36: 36px; --spacing-40: 40px;
+  --spacing-48: 48px; --spacing-64: 64px; --spacing-72: 72px;
+  --spacing-80: 80px; --spacing-96: 96px;
+
+  /* Layout */
+  --page-max-width: 1200px;
+  --section-gap: 80px;
+  --card-padding: 24px;
+  --element-gap: 10px;
+
+  /* Border Radius — only 8 / 12 / 20 / 24 / 9999px */
+  --radius-input: 8px;
+  --radius-icon: 12px;
+  --radius-card: 20px;
+  --radius-card-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Shadows — max 1–2px blur, no heavy drops */
+  --shadow-subtle:        rgba(0,0,0,0.25) 0px 1px 2px 0px inset;
+  --shadow-hairline:      rgba(0,0,0,0.35) 0px 0px 1px 0px;
+  --shadow-lift:          rgba(0,0,0,0.15) 0px 1px 1px 0px;
+  --shadow-btn-highlight: rgba(255,255,255,0.75) 0px 1px 2px 0px inset;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  background: var(--surface-canvas);
+  color: var(--color-ink-black);
+  overflow-x: hidden;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+}
+
+/* Display serif — apply to hero headlines only */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  line-height: 1.2;
+}
+
+/* Small-caps section label (Grove AI signature) */
+.label-caps {
+  font-family: var(--font-sans);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: var(--tracking-caption);
+  text-transform: uppercase;
+  color: var(--color-cyan-brand);
+}
+
+@layer components {
+  .container-custom {
+    max-width: var(--page-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Primary CTA — filled dark (Grove AI: dark fill, not brand color) */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--color-ink-black);
+    color: var(--color-pure-white);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-weight: 500;
+    letter-spacing: var(--tracking-body-sm);
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: var(--shadow-lift), var(--shadow-btn-highlight);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-primary:hover { background: #1e293b; }
+  .btn-primary:active { transform: scale(0.98); }
+
+  /* Brand CTA — filled cyan */
+  .btn-brand {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--color-cyan-brand);
+    color: var(--color-pure-white);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-weight: 500;
+    letter-spacing: var(--tracking-body-sm);
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: var(--shadow-lift), var(--shadow-btn-highlight);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-brand:hover { background: var(--color-cyan-vivid); }
+  .btn-brand:active { transform: scale(0.98); }
+
+  /* Outlined button */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--color-ink-black);
+    border: 1px solid var(--color-ink-black);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-body-sm);
+    font-weight: 500;
+    letter-spacing: var(--tracking-body-sm);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-outline:hover { background: var(--color-ink-black); color: white; }
+
+  /* Card — mist gray surface, hairline shadow, 20px radius */
+  .card {
+    background: var(--surface-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-hairline);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-hairline), var(--shadow-lift);
+  }
+
+  /* Card on white (when canvas is already white) */
+  .card-white {
+    background: var(--surface-canvas);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-shadow-smoke);
+    box-shadow: var(--shadow-hairline), var(--shadow-subtle);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  /* Section tag — Grove AI small-caps */
+  .section-tag {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    font-weight: 500;
+    letter-spacing: var(--tracking-caption);
+    text-transform: uppercase;
+    color: var(--color-cyan-brand);
+    margin-bottom: 1rem;
+  }
+
+  /* Announcement pill */
+  .pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid var(--color-cyan-brand);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-caption);
+    font-weight: 500;
+    letter-spacing: var(--tracking-caption);
+    text-transform: uppercase;
+    color: var(--color-cyan-brand);
+  }
+}
+
+/* ---- WORD ANIMATION (like Amy Marshall) ---- */
+.word-reveal .word {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.1em;
+}
+.word-reveal .word span {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+}
+.word-reveal.animated .word span {
+  animation: wordUp 0.7s cubic-bezier(.22,.61,.36,1) forwards;
+}
+.word-reveal .word:nth-child(1) span { animation-delay: 0s; }
+.word-reveal .word:nth-child(2) span { animation-delay: 0.08s; }
+.word-reveal .word:nth-child(3) span { animation-delay: 0.16s; }
+.word-reveal .word:nth-child(4) span { animation-delay: 0.24s; }
+.word-reveal .word:nth-child(5) span { animation-delay: 0.32s; }
+.word-reveal .word:nth-child(6) span { animation-delay: 0.40s; }
+.word-reveal .word:nth-child(7) span { animation-delay: 0.48s; }
+.word-reveal .word:nth-child(8) span { animation-delay: 0.56s; }
+
+@keyframes wordUp {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* ---- BLOB ANIMATION ---- */
+@keyframes morphBlob {
+  0%,100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%; }
+  75% { border-radius: 40% 60% 60% 40% / 60% 30% 60% 40%; }
+}
+.blob {
+  animation: morphBlob 8s ease-in-out infinite;
+}
+.blob-slow { animation-duration: 12s; }
+.blob-reverse { animation-direction: reverse; }
+
+/* ---- FLOAT ---- */
+@keyframes float {
+  0%,100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-14px) rotate(1deg); }
+  66% { transform: translateY(-7px) rotate(-1deg); }
+}
+.float { animation: float 5s ease-in-out infinite; }
+.float-slow { animation: float 7s ease-in-out infinite; animation-delay: -2s; }
+.float-alt { animation: float 6s ease-in-out infinite; animation-delay: -1s; }
+
+/* ---- MARQUEE ---- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 18s linear infinite; display: flex; width: max-content; }
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ---- PARALLAX BG ---- */
+.parallax-bg {
+  will-change: transform;
+}
+
+/* ---- LINE DRAW ---- */
+@keyframes lineDraw {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---- STAGGER FADE ---- */
+.stagger-item { opacity: 0; transform: translateY(30px); }
+.stagger-item.in-view {
+  animation: staggerIn 0.7s cubic-bezier(.22,.61,.36,1) forwards;
+}
+@keyframes staggerIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- PULSE RING ---- */
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulseRing 2s ease-out infinite;
+}
