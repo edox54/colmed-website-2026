@@ -10,7 +10,7 @@ const nextConfig = {
       },
     ],
   },
-  output: 'standalone',
+  output: 'export',
   compress: true,
   poweredByHeader: false,
 }
