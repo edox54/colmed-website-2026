@@ -26,7 +26,7 @@ app.use(express.static(distPath, {
 }));
 
 // SPA routing: try file.html, then index.html
-app.get('*', (req, res) => {
+app.get('/{*splat}', (req, res) => {
   const pathname = req.path.replace(/\/$/, '') || '/';
 
   // Try exact file
