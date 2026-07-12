@@ -11,9 +11,9 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="mb-4">
               <img
-                src="/colmed-logo.svg"
+                src="/logo.png"
                 alt="Colmed Centro Médico"
-                className="h-14 w-auto drop-shadow-[0_0_1px_rgba(255,255,255,0.3)]"
+                style={{ height: '56px', width: 'auto', filter: 'drop-shadow(0 0 1px rgba(255,255,255,0.3))' }}
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
