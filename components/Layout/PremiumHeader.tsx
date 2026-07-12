@@ -205,8 +205,8 @@ export default function PremiumHeader() {
         <nav className="container-custom max-w-page flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
-            <Image src="/colmed-logo.svg" alt="Colmed Centro Médico" width={150} height={38} priority
-              className={`transition-all duration-300 hover:opacity-90 ${scrolled ? 'scale-95' : 'scale-100'}`} />
+            <img src="/colmed-logo.svg" alt="Colmed Centro Médico"
+              className={`h-12 w-auto transition-all duration-300 hover:opacity-90 ${scrolled ? 'scale-95' : 'scale-100'}`} />
           </Link>
 
           {/* Desktop links */}
@@ -291,7 +291,7 @@ export default function PremiumHeader() {
           <div className="lg:hidden fixed inset-0 bg-white z-[70] overflow-y-auto flex flex-col">
             {/* Drawer header */}
             <div className="flex items-center justify-between px-5 h-16 border-b border-slate-100 shrink-0">
-              <Image src="/colmed-logo.svg" alt="Colmed" width={130} height={33} />
+              <img src="/colmed-logo.svg" alt="Colmed" className="h-10 w-auto" />
               <button onClick={() => setIsOpen(false)} className="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors">
                 <X size={20} />
               </button>

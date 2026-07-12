@@ -10,12 +10,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           <div className="md:col-span-2">
             <div className="mb-4">
-              <Image
+              <img
                 src="/colmed-logo.svg"
                 alt="Colmed Centro Médico"
-                width={160}
-                height={41}
-                className="invert opacity-90"
+                className="h-14 w-auto drop-shadow-[0_0_1px_rgba(255,255,255,0.3)]"
               />
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
