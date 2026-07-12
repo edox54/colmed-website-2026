@@ -43,7 +43,10 @@ app.use(import_express.default.static(distPath, {
   index: false,
   maxAge: "1h"
 }));
-app.get("/{*splat}", (req, res) => {
+app.use((req, res) => {
+  res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
+  res.setHeader("X-LiteSpeed-Cache-Control", "no-cache");
+  res.setHeader("Pragma", "no-cache");
   const pathname = req.path.replace(/\/$/, "") || "/";
   const exact = import_path.default.join(distPath, pathname + ".html");
   if (import_fs.default.existsSync(exact)) return res.sendFile(exact);
