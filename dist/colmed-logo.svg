@@ -1,0 +1,42 @@
+<svg viewBox="0 0 520 185" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="hexGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#29C5EA"/>
+      <stop offset="100%" stop-color="#47BB4D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pointy-top hexagon -->
+  <polygon
+    points="92,7 165.6,49.5 165.6,134.5 92,177 18.4,134.5 18.4,49.5"
+    fill="url(#hexGrad)"
+  />
+
+  <!-- White cross (plus) centered in hexagon -->
+  <rect x="41" y="81" width="102" height="22" rx="6" fill="white"/>
+  <rect x="81" y="41" width="22" height="102" rx="6" fill="white"/>
+
+  <!-- ECG line through cross horizontal arm -->
+  <circle cx="51" cy="92" r="3.5" fill="#AACAD6"/>
+  <circle cx="133" cy="92" r="3.5" fill="#AACAD6"/>
+  <path d="M51,92 L67,92 L73,80 L80,108 L87,86 L92,92 L133,92"
+        stroke="#AACAD6" stroke-width="2.2" fill="none"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- "col" green + "med" cyan -->
+  <text
+    x="196" y="122"
+    font-family="'Arial Rounded MT Bold','Trebuchet MS',Arial,sans-serif"
+    font-size="82"
+    font-weight="bold">
+    <tspan fill="#47BB4D">col</tspan><tspan fill="#29C5EA">med</tspan>
+  </text>
+
+  <!-- Subtitle -->
+  <text
+    x="202" y="154"
+    font-family="Arial,Helvetica,sans-serif"
+    font-size="19"
+    fill="#9CA3AF"
+    letter-spacing="6">CENTRO MÉDICO</text>
+</svg>
